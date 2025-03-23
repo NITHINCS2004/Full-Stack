@@ -59,6 +59,7 @@ function App() {
 
 export default App;
 */
+/*
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -83,6 +84,36 @@ const App = () => {
         <Routes>
           <Route path="/" element={user ? <Home /> : <Login onLogin={setUser} />} />
           <Route path="/home" element={<Home />} />
+        </Routes>
+      </Router>
+    </GoogleOAuthProvider>
+  );
+};
+
+export default App;
+*/
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import Login from "./components/Login";
+import Home from "./components/Home";
+
+const App = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  return (
+    <GoogleOAuthProvider clientId="486340617177-627cq1s06j912ps9ot0lnrqube6b4vlp.apps.googleusercontent.com">
+      <Router>
+        <Routes>
+          <Route path="/" element={!user ? <Login setUser={setUser} /> : <Navigate to="/home" />} />
+          <Route path="/home" element={user ? <Home user={user} setUser={setUser} /> : <Navigate to="/" />} />
         </Routes>
       </Router>
     </GoogleOAuthProvider>

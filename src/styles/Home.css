@@ -1,4 +1,4 @@
-.home-container {
+/*.home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,4 +25,29 @@
   button:hover {
     background-color: #c9302c;
   }
-  
+  */
+  .home-container {
+    text-align: center;
+    padding: 50px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+    color: white;
+}
+
+.logout-btn {
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.logout-btn:hover {
+    background-color: darkred;
+}
