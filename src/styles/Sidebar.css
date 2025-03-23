@@ -1,24 +1,33 @@
 .sidebar {
     width: 250px;
-    background: #222;
+    background: #0de974;
     color: white;
     padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 60px; /* Below Navbar */
+    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
   }
   
   .sidebar ul {
     list-style: none;
     padding: 0;
+    margin: 0;
   }
   
   .sidebar li {
-    padding: 10px;
+    padding: 15px;
     display: flex;
     align-items: center;
     cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .sidebar li:hover {
+    background: #333;
   }
   
   .sidebar li svg {
@@ -33,5 +42,6 @@
     border: none;
     cursor: pointer;
     margin-top: auto;
+    width: 100%;
   }
   

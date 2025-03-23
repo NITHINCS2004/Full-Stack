@@ -25,7 +25,7 @@
   button:hover {
     background-color: #c9302c;
   }
-  */
+  *//*
   .home-container {
     text-align: center;
     padding: 50px;
@@ -38,19 +38,7 @@
     color: white;
 }
 
-.logout-btn {
-    background-color: red;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
 
-.logout-btn:hover {
-    background-color: darkred;
-}
 .home-page {
     display: flex;
     flex-direction: column;
@@ -65,5 +53,22 @@
   .content {
     flex: 1;
     padding: 20px;
+  }*/
+  .home-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-top: 60px; /* Below Navbar */
   }
+  
+  .main-content {
+    display: flex;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 250px; /* Adjust for Sidebar */
+  }
+  
   
