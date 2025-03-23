@@ -46,9 +46,9 @@
   }
   */
   .sidebar {
-    width: 100px;
-    background: #222;
-    color: white;
+    width: 150px;
+    background: #c3d8af;
+    color: rgb(234, 14, 14);
     padding: 20px;
     position: fixed;
     left: -250px;
@@ -80,8 +80,8 @@
   }
   
   .logout-btn {
-    background: red;
-    color: white;
+    background: rgb(220, 125, 163);
+    color: rgb(11, 79, 156);
     padding: 10px;
     border: none;
     cursor: pointer;
