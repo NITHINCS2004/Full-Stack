@@ -86,25 +86,28 @@ const PORT = process.env.PORT || 5173;
 const MONGO_URL = process.env.MONGO_URL;
 
 // Middleware
-app.use(express.json());
+app.use(express.json()); // Important for parsing JSON request bodies
 app.use(cors());
 
 // MongoDB Connection
 mongoose
-  .connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB Connected Successfully"))
-  .catch((error) => console.error("MongoDB Connection Failed:", error));
+  .connect(MONGO_URL)
+  .then(() => console.log("✅ MongoDB Connected Successfully"))
+  .catch((error) => console.error("❌ MongoDB Connection Failed:", error));
 
 // Define Mongoose Schema & Model
 const userSchema = new mongoose.Schema({
   name: String,
-  email: String,
+  email: { type: String, unique: true }, // Ensuring email is unique
 });
 
 const User = mongoose.model("User", userSchema);
 
-// POST Route to Insert User Data from React Form
+// ✅ POST Route to Insert User Data
 app.post("/api/users", async (req, res) => {
+  console.log("🔹 Received POST request at /api/users");
+  console.log("🔹 Request Body:", req.body); // Debugging log
+
   const { name, email } = req.body;
 
   if (!name || !email) {
@@ -119,18 +122,20 @@ app.post("/api/users", async (req, res) => {
 
     const user = new User({ name, email });
     await user.save();
+    console.log("✅ User inserted:", user);
     res.status(201).json({ message: "User added successfully", user });
   } catch (error) {
+    console.error("❌ Error inserting user:", error);
     res.status(500).json({ error: "Error inserting user" });
   }
 });
 
 // Default Route
 app.get("/", (req, res) => {
-  res.send("Server is running");
+  res.send("✅ Server is running.");
 });
 
 // Start Server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });

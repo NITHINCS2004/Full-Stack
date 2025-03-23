@@ -10,17 +10,24 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await fetch("https://full-stack-4-0kft.onrender.com/submit", {
+      const response = await fetch("https://full-stack-4-0kft.onrender.com/api/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
       alert(data.message);
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("❌ Error submitting form:", error);
+      alert(error.message);
     }
   };
 
