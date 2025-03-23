@@ -34,7 +34,7 @@ const Navbar = ({ toggleSidebar }) => {
       <button className="menu-btn" onClick={toggleSidebar}>
         <BsList size={25} />
       </button>
-      <img src="/logo.png" alt="Logo" className="navbar-logo" />
+      <img src="https://tse2.mm.bing.net/th?id=OIP.Zu094Tjw1ZGza4Sgc8NenwHaHa&pid=Api&P=0&h=180" alt="Logo" className="navbar-logo" />
       <h2>About</h2>
     </nav>
   );
