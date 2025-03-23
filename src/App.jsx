@@ -1,4 +1,4 @@
-import { useState } from "react";
+/*import { useState } from "react";
 import "./App.css";
 
 function App() {
@@ -56,5 +56,37 @@ function App() {
     </div>
   );
 }
+
+export default App;
+*/
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import Login from "./components/Login";
+import Home from "./components/Home";
+
+const CLIENT_ID = "486340617177-627cq1s06j912ps9ot0lnrqube6b4vlp.apps.googleusercontent.com";
+
+const App = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }, []);
+
+  return (
+    <GoogleOAuthProvider clientId={CLIENT_ID}>
+      <Router>
+        <Routes>
+          <Route path="/" element={user ? <Home /> : <Login onLogin={setUser} />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </Router>
+    </GoogleOAuthProvider>
+  );
+};
 
 export default App;
