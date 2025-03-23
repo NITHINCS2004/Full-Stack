@@ -87,7 +87,7 @@ const MONGO_URL = process.env.MONGO_URL;
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+//app.use(cors());
 
 // MongoDB Connection
 mongoose
