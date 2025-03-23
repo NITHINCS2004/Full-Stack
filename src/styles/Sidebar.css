@@ -1,11 +1,11 @@
-.sidebar {
+/*.sidebar {
     width: 250px;
     background: #0de974;
     color: white;
     padding: 20px;
     position: fixed;
     left: 0;
-    top: 60px; /* Below Navbar */
+    top: 60px;
     bottom: 0;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,51 @@
     margin-right: 10px;
   }
   
-  /* Logout Button */
+  
+  .logout-btn {
+    background: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: auto;
+    width: 100%;
+  }
+  */
+  .sidebar {
+    width: 250px;
+    background: #222;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    left: -250px;
+    top: 60px; /* Below Navbar */
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s ease;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .sidebar li:hover {
+    background: #333;
+  }
+  
   .logout-btn {
     background: red;
     color: white;

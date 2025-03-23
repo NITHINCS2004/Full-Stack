@@ -58,7 +58,7 @@ const Home = ({ user, setUser }) => {
 };
 
 export default Home;
-*/
+*//*
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
@@ -77,14 +77,49 @@ const Home = ({ user, setUser }) => {
 
   return (
     <div className="home-page">
-      {/* Navbar */}
+     
       <Navbar />
 
       <div className="main-content">
-        {/* Sidebar */}
+      
         <Sidebar setSection={setSection} handleLogout={handleLogout} />
 
-        {/* Dynamic Content Area */}
+       
+        <section className="content">
+          {section === "home" && <h1>Welcome, {user?.name}!</h1>}
+          {section === "profile" && <h1>Profile Section</h1>}
+          {section === "settings" && <h1>Settings Section</h1>}
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
+*/
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
+import "../styles/Home.css"; 
+
+const Home = ({ user, setUser }) => {
+  const navigate = useNavigate();
+  const [section, setSection] = useState("home"); // Track section
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar toggle
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/");
+  };
+
+  return (
+    <div className="home-page">
+      <Navbar toggleSidebar={toggleSidebar} />
+      <div className="main-content">
+        <Sidebar isOpen={isSidebarOpen} setSection={setSection} handleLogout={handleLogout} />
         <section className="content">
           {section === "home" && <h1>Welcome, {user?.name}!</h1>}
           {section === "profile" && <h1>Profile Section</h1>}
