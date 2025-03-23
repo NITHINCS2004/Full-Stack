@@ -48,7 +48,7 @@ const Login = ({ setUser }) => {
 
   return (
     <div className="login-container">
-      <h1 className="login-heading">WELCOME TO YOUTUBE</h1>
+      <h1 className="login-heading">WELCOME TO DAILY PRODUCTIVITY TRACER</h1>
       <div className="icon-container">
         <BsFillShieldLockFill size={40} className="icon" />
         <BsKeyFill size={40} className="icon" />
