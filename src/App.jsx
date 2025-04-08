@@ -97,6 +97,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import Profile from "./components/Profile";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -114,6 +115,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={!user ? <Login setUser={setUser} /> : <Navigate to="/home" />} />
           <Route path="/home" element={user ? <Home user={user} setUser={setUser} /> : <Navigate to="/" />} />
+          <Route path="/profile" element={<Profile />} /> {/* Profile route */}
         </Routes>
       </Router>
     </GoogleOAuthProvider>
