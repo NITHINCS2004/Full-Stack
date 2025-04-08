@@ -4,7 +4,7 @@ import "../styles/Chatbot.css";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Replace with your Gemini API key
-const API_KEY = "AIzaSyDLeHTvLTnGJjtK0j240MAd93aviBCscQ4";
+const API_KEY = "AIzaSyAh1HqkPgH_pq0xZZt0ILKLNxSDGDVzbB0";
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 const Chatbot = () => {
